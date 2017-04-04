@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import gql from 'graphql-tag';
 import { propType } from 'graphql-anywhere';
+import VoteButtonsFragment from '../graphql/VoteButtonsFragment.graphql';
 
 export default function VoteButtons({ canVote, onVote, entry: { score, vote } }) {
   const buttonClasses = classNames('btn', 'btn-score', {
@@ -34,14 +34,7 @@ export default function VoteButtons({ canVote, onVote, entry: { score, vote } })
 }
 
 VoteButtons.fragments = {
-  entry: gql`
-    fragment VoteButtons on Entry {
-      score
-      vote {
-        vote_value
-      }
-    }
-  `,
+  entry: VoteButtonsFragment,
 };
 
 VoteButtons.propTypes = {
