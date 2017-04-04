@@ -1,8 +1,8 @@
 import React from 'react';
 import TimeAgo from 'react-timeago';
 import { emojify } from 'node-emoji';
-import gql from 'graphql-tag';
 import { propType } from 'graphql-anywhere';
+import REPO_INFO_FRAGMENT from '../graphql/RepoInfoFragment.graphql';
 
 import InfoLabel from './InfoLabel';
 
@@ -49,20 +49,7 @@ const RepoInfo = ({
 );
 
 RepoInfo.fragments = {
-  entry: gql`
-    fragment RepoInfo on Entry {
-      createdAt
-      repository {
-        description
-        stargazers_count
-        open_issues_count
-      }
-      postedBy {
-         html_url
-         login
-      }
-    }
-  `,
+  entry: REPO_INFO_FRAGMENT,
 };
 
 RepoInfo.propTypes = {
