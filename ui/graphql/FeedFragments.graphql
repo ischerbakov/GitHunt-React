@@ -1,3 +1,6 @@
+#import "./VoteButtonsFragment.graphql"
+#import "./RepoInfoFragment.graphql"
+
 fragment FeedEntry on Entry {
   id
   commentCount
