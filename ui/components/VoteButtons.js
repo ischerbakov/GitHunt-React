@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { propType } from 'graphql-anywhere';
-import VoteButtonsFragment from '../graphql/VoteButtonsFragment.graphql';
+import VOTE_BUTTONS_FRAGMENT from '../graphql/VoteButtonsFragment.graphql';
 
 export default function VoteButtons({ canVote, onVote, entry: { score, vote } }) {
   const buttonClasses = classNames('btn', 'btn-score', {
@@ -34,7 +34,7 @@ export default function VoteButtons({ canVote, onVote, entry: { score, vote } })
 }
 
 VoteButtons.fragments = {
-  entry: VoteButtonsFragment,
+  entry: VOTE_BUTTONS_FRAGMENT,
 };
 
 VoteButtons.propTypes = {
