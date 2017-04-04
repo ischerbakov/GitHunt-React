@@ -8,6 +8,7 @@ import { filter, propType } from 'graphql-anywhere';
 import VoteButtons from './VoteButtons';
 import RepoInfo from './RepoInfo';
 import COMMENT_QUERY from '../graphql/Comment.graphql';
+import FEED_ENTRY_FRAGMENTS from '../graphql/FeedEntryFragments.graphql';
 
 const FeedEntry = ({
   loggedIn,
@@ -71,23 +72,7 @@ const FeedEntry = ({
 };
 
 FeedEntry.fragments = {
-  entry: gql`
-    fragment FeedEntry on Entry {
-      id
-      commentCount
-      repository {
-        full_name
-        html_url
-        owner {
-          avatar_url
-        }
-      }
-      ...VoteButtons
-      ...RepoInfo
-    }
-    ${VoteButtons.fragments.entry}
-    ${RepoInfo.fragments.entry}
-  `,
+  entry: FEED_ENTRY_FRAGMENTS,
 };
 
 FeedEntry.propTypes = {
